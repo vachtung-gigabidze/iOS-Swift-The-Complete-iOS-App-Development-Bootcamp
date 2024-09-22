@@ -16,10 +16,24 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    private func changeButtonAlpha(_ button: UIButton)
+    {
+        button.alpha = button.alpha == 1 ? 0.5 : 1
+    }
 
     @IBAction func keyPressd(_ sender: UIButton) {
-        
+        changeButtonAlpha(sender)
+        print( "Start")
+//        sender.alpha = 0.5
+        guard sender.currentTitle != nil else { return }
         playSound(sound: sender.currentTitle!)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2){
+           print("End")
+//            sender.alpha = 1
+            self.changeButtonAlpha(sender)
+        }
+        
         
         
     }

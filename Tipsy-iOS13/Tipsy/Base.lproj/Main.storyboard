@@ -204,6 +204,7 @@
                         <outlet property="tenPctButton" destination="7y6-Kf-yF0" id="maJ-0d-Cjw"/>
                         <outlet property="twentyPctButton" destination="UtR-dU-EKt" id="881-KD-uZW"/>
                         <outlet property="zeroPctButton" destination="XzR-0E-Xf7" id="pLT-tt-XqS"/>
+                        <segue destination="Dnf-m2-FPm" kind="presentation" identifier="toResult" customClass="ResultsViewController" customModule="Tipsy" customModuleProvider="target" id="Yon-gE-bJK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -215,7 +216,7 @@
             <objects>
                 <viewController id="Dnf-m2-FPm" customClass="ResultsViewController" customModule="Tipsy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DNW-gk-FsX">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZCe-Te-efL">
@@ -252,7 +253,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zzn-9K-6hu">
-                                <rect key="frame" x="96.666666666666686" y="764" width="200" height="54"/>
+                                <rect key="frame" x="96.666666666666686" y="788" width="200" height="54"/>
                                 <color key="backgroundColor" red="0.0" green="0.69019607839999997" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="0Lh-eY-3GO"/>

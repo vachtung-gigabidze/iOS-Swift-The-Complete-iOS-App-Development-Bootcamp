@@ -9,6 +9,9 @@
 import UIKit
 
 class CalculatorViewController: UIViewController {
+    
+    //var tipsy = TipsyBrain(bill: 0, percent: 0, splitNumber: 0)
+    
     @IBOutlet weak var billTExtField: UITextField!
     
     @IBOutlet weak var zeroPctButton: UIButton!
@@ -16,7 +19,7 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var twentyPctButton: UIButton!
     @IBOutlet weak var splitNumberLabel: UILabel!
     
-    var selectedPCt: Float = 0.1
+    var selectedPCt: Int = 0
     var total: Float = 0.0
     
     override func viewDidLoad() {
@@ -30,7 +33,7 @@ class CalculatorViewController: UIViewController {
         tenPctButton.isSelected = tenPctButton.currentTitle == sender.currentTitle
         twentyPctButton.isSelected = twentyPctButton.currentTitle == sender.currentTitle
         
-        selectedPCt = [0.0,0.1,0.2][[zeroPctButton.isSelected, tenPctButton.isSelected, twentyPctButton.isSelected].firstIndex(where: {$0 == true})!]
+        selectedPCt = [0,10,20][[zeroPctButton.isSelected, tenPctButton.isSelected, twentyPctButton.isSelected].firstIndex(where: {$0 == true})!]
         
         billTExtField.endEditing(true)
         
@@ -44,7 +47,7 @@ class CalculatorViewController: UIViewController {
         
         let bill = Float(billTExtField.text ?? "0.0")
         let splitNumber = Float(splitNumberLabel.text ?? "0")
-        //total = (bill! * selectedPCt + bill!) / splitNumber!
+        total = (bill! * Float(selectedPCt/100) + bill!) / splitNumber!
         self.performSegue(withIdentifier: "goToResult", sender: self)
     }
 
@@ -52,6 +55,8 @@ class CalculatorViewController: UIViewController {
         if segue.identifier == "goToResult" {
             let destinationVC = segue.destination as! ResultsViewController
             destinationVC.total = total
+            destinationVC.splitNumberText = splitNumberLabel.text!
+            destinationVC.percentText = String(selectedPCt)
             
     }
 }

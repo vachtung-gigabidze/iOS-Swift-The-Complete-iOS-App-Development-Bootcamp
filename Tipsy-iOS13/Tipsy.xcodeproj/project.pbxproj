@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		794244C42CA701AB0048F08C /* tipsyBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794244C32CA701AB0048F08C /* tipsyBrain.swift */; };
 		79E509AC2CA5DF8000D57EEB /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E509AB2CA5DF8000D57EEB /* ResultsViewController.swift */; };
 		ADB689532326708D006D4E2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB689522326708D006D4E2B /* AppDelegate.swift */; };
 		ADB689552326708D006D4E2B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB689542326708D006D4E2B /* SceneDelegate.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		794244C32CA701AB0048F08C /* tipsyBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tipsyBrain.swift; sourceTree = "<group>"; };
 		79E509AB2CA5DF8000D57EEB /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		ADB6894F2326708D006D4E2B /* Tipsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tipsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADB689522326708D006D4E2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +41,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		794244C22CA7017E0048F08C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				794244C32CA701AB0048F08C /* tipsyBrain.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		79E509AD2CA5DFB100D57EEB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +77,7 @@
 		ADB689512326708D006D4E2B /* Tipsy */ = {
 			isa = PBXGroup;
 			children = (
+				794244C22CA7017E0048F08C /* Models */,
 				79E509AD2CA5DFB100D57EEB /* Controllers */,
 				ADB689522326708D006D4E2B /* AppDelegate.swift */,
 				ADB689542326708D006D4E2B /* SceneDelegate.swift */,
@@ -151,6 +162,7 @@
 			files = (
 				ADB689572326708D006D4E2B /* CalculatorViewController.swift in Sources */,
 				ADB689532326708D006D4E2B /* AppDelegate.swift in Sources */,
+				794244C42CA701AB0048F08C /* tipsyBrain.swift in Sources */,
 				ADB689552326708D006D4E2B /* SceneDelegate.swift in Sources */,
 				79E509AC2CA5DF8000D57EEB /* ResultsViewController.swift in Sources */,
 			);

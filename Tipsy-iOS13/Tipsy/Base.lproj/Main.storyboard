@@ -204,7 +204,7 @@
                         <outlet property="tenPctButton" destination="7y6-Kf-yF0" id="maJ-0d-Cjw"/>
                         <outlet property="twentyPctButton" destination="UtR-dU-EKt" id="881-KD-uZW"/>
                         <outlet property="zeroPctButton" destination="XzR-0E-Xf7" id="pLT-tt-XqS"/>
-                        <segue destination="Dnf-m2-FPm" kind="presentation" identifier="toResult" customClass="ResultsViewController" customModule="Tipsy" customModuleProvider="target" id="Yon-gE-bJK"/>
+                        <segue destination="Dnf-m2-FPm" kind="presentation" identifier="goToResult" id="Yon-gE-bJK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

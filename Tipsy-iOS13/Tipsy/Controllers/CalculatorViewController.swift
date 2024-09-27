@@ -17,6 +17,7 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var splitNumberLabel: UILabel!
     
     var selectedPCt: Float = 0.1
+    var total: Float = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,13 +40,20 @@ class CalculatorViewController: UIViewController {
         splitNumberLabel.text = String(Int(sender.value))
     }
     
-    @IBAction func calculatePressed(_ sender: UIButton) {
+    @IBAction func calculatePressed(_ sender: UIButton) {        
         
-        //present(<#T##viewControllerToPresent: UIViewController##UIViewController#>, animated: <#T##Bool#>, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
         let bill = Float(billTExtField.text ?? "0.0")
         let splitNumber = Float(splitNumberLabel.text ?? "0")
-        print((bill! * selectedPCt + bill!) / splitNumber!)
+        //total = (bill! * selectedPCt + bill!) / splitNumber!
+        self.performSegue(withIdentifier: "goToResult", sender: self)
     }
-    
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToResult" {
+            let destinationVC = segue.destination as! ResultsViewController
+            destinationVC.total = total
+            
+    }
+}
 }
 

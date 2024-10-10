@@ -9,6 +9,8 @@
 import UIKit
 
 class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManagerDelegate {
+    
+    
 
     @IBOutlet weak var conditionImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -51,9 +53,11 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
         searchTextField.text = ""
     }
     
-    func didUpdateWaether(weather: WeatherModel){
+    func didUpdateWaether(_ weatherManager: WeatherManager, weather: WeatherModel){
         
     }
-    
+    func didFailWithError(error: Error) {
+        print(error)
+    }
 }
 

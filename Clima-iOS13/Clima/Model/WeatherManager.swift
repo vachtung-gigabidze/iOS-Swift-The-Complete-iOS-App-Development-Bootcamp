@@ -9,7 +9,8 @@
 import Foundation
 
 protocol WeatherManagerDelegate {
-    func didUpdateWaether(weather: WeatherModel)
+    func didUpdateWaether(_ weatherManager: WeatherManager, weather: WeatherModel)
+    func didFailWithError(error: Error)
 }
 
 struct WeatherManager {
@@ -17,20 +18,21 @@ struct WeatherManager {
     var delegate: WeatherManagerDelegate?
     func fetchWeather(cityName: String){
         let urlString = "\(weatherURL)&=\(cityName)"
+        performRequest(wuth: urlString)
     }
     
-    func performRequest(urlString : String){
+    func performRequest(wuth urlString : String){
         if let url = URL(string: urlString){
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url) { data, response, error in
                 if error != nil {
-                    print(error!)
+                    self.delegate.?.didFailWithError(error: error)
                     return
                 }
                 if let safeData = data {
-                    if let weather = parseJSON(weatherData: safeData) {
+                    if let weather = parseJSON(safeData) {
                         
-                        delegate?.didUpdateWaether(weather: weather)
+                        delegate?.didUpdateWaether(self ,weather: weather)
                     }
                     
                 }
@@ -39,7 +41,7 @@ struct WeatherManager {
         }
     }
     
-    func parseJSON(weatherData: Data) -> WeatherModel? {
+    func parseJSON(_ weatherData: Data) -> WeatherModel? {
         let decoder = JSONDecoder()
         do {
             let decodedData = try decoder.decode(WeatherData.self, from: weatherData)
@@ -51,7 +53,7 @@ struct WeatherManager {
             return  weather
             //print(weather.conditionName)
         } catch {
-            print(error)
+            self.delegate.?.didFailWithError(error: error)
         }
         return nil
     }

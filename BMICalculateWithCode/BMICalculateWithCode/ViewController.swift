@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class ViewController: UIViewController {
 
@@ -21,10 +22,24 @@ class ViewController: UIViewController {
     private var heightStackView = UIStackView()
     private var heightTitleLabel = UILabel(text: "", textAlignment: .left)
     private var heightNumberLabel = UILabel(text: "", textAlignment: .right)
+    private let heightSlider = UISlider(maxValue: 3)
+    private let weightSlider = UISlider(maxValue: 300)
     
     private var weightStackView = UIStackView()
     private var weightTitleLabel = UILabel(text: "", textAlignment: .left)
     private var weightNumberLabel = UILabel(text: "", textAlignment: .right)
+    
+    private lazy var calculateButton : UIButton = {
+        let element = UIButton(type: .system)
+        element.tintColor = .white
+        element.backgroundColor = UIColor(red: 0.45, green: 0.45, blue: 0.82, alpha: 1.0)
+        element.layer.cornerRadius = 10
+        element.titleLabel?.font = .systemFont(ofSize: 20)
+        element.setTitle("Calculate", for: .normal)
+        element.addTarget(self, action: #selector(calculateButtonTapped), for: .touchUpInside)
+        element.translatesAutoresizingMaskIntoConstraints = false
+        return element
+    }()
 
     private lazy var titleLabel : UILabel = {
         let element = UILabel()
@@ -44,13 +59,24 @@ class ViewController: UIViewController {
         setupConstrains()
     }
 
+    @objc private func calculateButtonTapped(){
+        
+    }
 
 }
 
 extension ViewController {
     private func setView(){
-        mainStackView = UIStackView.init(axis: .vertical, distribution: .fillProportionally, subViews: [titleLabel])
+        heightStackView = UIStackView(axis: .horizontal, distribution: .fillEqually, subViews: [heightTitleLabel, heightNumberLabel])
+        weightStackView = UIStackView(axis: .horizontal, distribution: .fillEqually, subViews: [weightTitleLabel, weightNumberLabel])
+        
+        
+        mainStackView = UIStackView.init(axis: .vertical, distribution: .fillProportionally, subViews: [titleLabel, heightStackView, heightSlider, weightStackView, weightSlider, calculateButton])
         titleLabel.text = "CALCULATE YOUR BMI"
+        heightTitleLabel.text = "Height"
+        heightNumberLabel.text = "1.5 m"
+        weightTitleLabel.text = "Weight"
+        weightNumberLabel.text = "100 kg"
         view.addSubview(backgroundImageView)
         view.addSubview(mainStackView)
     }
@@ -65,7 +91,15 @@ extension ViewController {
         mainStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
         mainStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         mainStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-        mainStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20)
+        mainStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+        
+        heightStackView.heightAnchor.constraint(equalToConstant: 21),
+        heightSlider.heightAnchor.constraint(equalToConstant: 60),
+        
+        weightStackView.heightAnchor.constraint(equalToConstant: 21),
+        weightSlider.heightAnchor.constraint(equalToConstant: 60),
+        
+        calculateButton.heightAnchor.constraint(equalToConstant: 51)
         
         ])
     }
@@ -90,5 +124,23 @@ extension UILabel {
         self.textColor = .darkGray
         
         self.translatesAutoresizingMaskIntoConstraints = false
+    }
+}
+
+extension UISlider {
+    convenience init(maxValue: Float){
+        self.init()
+        
+        self.maximumValue = maxValue
+        self.value = maxValue / 2
+        self.thumbTintColor = UIColor(red: 0.45, green: 0.45, blue: 0.82, alpha: 0.5)
+        self.minimumTrackTintColor = UIColor(red: 0.45, green: 0.45, blue: 0.82, alpha: 0.5)
+        self.translatesAutoresizingMaskIntoConstraints = false
+    }
+}
+
+struct ViewControllerProvider: PreviewProvider {
+    static var previews: some View {
+        ViewController().showPreview()
     }
 }

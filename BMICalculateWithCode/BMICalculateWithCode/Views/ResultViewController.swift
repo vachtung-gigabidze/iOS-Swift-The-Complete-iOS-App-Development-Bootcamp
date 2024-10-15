@@ -20,7 +20,7 @@ class ResultViewController: UIViewController {
     }()
     
     private var mainStackView = UIStackView()
-    private lazy var calculateButton = UIButton(isBackgroundWhite: true, calculateButtonTapped: #selector(calculateButtonTapped))
+    private lazy var calculateButton = UIButton(isBackgroundWhite: true)
     
     private lazy var titleLabel : UILabel = {
         let element = UILabel()
@@ -50,24 +50,36 @@ class ResultViewController: UIViewController {
         return element
     }()
     
+    // MARK: - Public parameters
+    
+    var bmiValue: String?
+    var advice: String?
+    var color: UIColor?
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad(){
         super.viewDidLoad()
+        
+        resultLabel.text = bmiValue
+        descriptionLabel.text = advice
+        view.backgroundColor = color ?? .blue
+        
+        calculateButton.addTarget(self, action: #selector(calculateButtonTapped), for: .touchUpInside)
         
         setView()
         setupConstrains()
     }
     
     @objc private func calculateButtonTapped(){
-        
+        dismiss(animated: true)
     }
 }
 
 extension ResultViewController {
     private func setView(){
         
-        view.backgroundColor = .blue
+        
         mainStackView = UIStackView.init(axis: .vertical, distribution: .fillProportionally, subViews: [titleLabel, resultLabel, descriptionLabel])
         view.addSubview(backgroundImageView)
         view.addSubview(mainStackView)
@@ -100,8 +112,8 @@ extension ResultViewController {
 
 
 
-struct ViewControllerProvider: PreviewProvider {
-    static var previews: some View {
-        ResultViewController().showPreview()
-    }
-}
+//struct ViewControllerProvider: PreviewProvider {
+//    static var previews: some View {
+//        ResultViewController().showPreview()
+//    }
+//}

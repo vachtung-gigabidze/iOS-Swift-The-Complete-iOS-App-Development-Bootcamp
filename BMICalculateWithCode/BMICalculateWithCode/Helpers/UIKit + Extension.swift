@@ -42,7 +42,7 @@ extension UISlider {
 }
 
 extension UIButton {
-    convenience init(isBackgroundWhite: Bool, calculateButtonTapped: Selector) {
+    convenience init(isBackgroundWhite: Bool) {
         self.init(type: .system)
         
         self.backgroundColor  = isBackgroundWhite ? .white : UIColor(red: 0.45, green: 0.45, blue: 0.82, alpha: 1.0)
@@ -50,7 +50,7 @@ extension UIButton {
         self.layer.cornerRadius = 10
         self.titleLabel?.font = .systemFont(ofSize: 20)
         self.setTitle(isBackgroundWhite ? "RECALCULATE" : "CALCULATE", for: .normal)
-        self.addTarget(self, action: calculateButtonTapped, for: .touchUpInside)
+        
         self.translatesAutoresizingMaskIntoConstraints = false
     }
 }

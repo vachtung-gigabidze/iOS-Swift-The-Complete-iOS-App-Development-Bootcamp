@@ -1,11 +1,3 @@
-//
-//  CalculateBrain.swift
-//  BMI Calculator
-//
-//  Created by Дмирий Зядик on 26.09.2024.
-//  Copyright © 2024 Angela Yu. All rights reserved.
-//
-
 import UIKit
 
 struct CalculateBrain {
@@ -27,11 +19,11 @@ struct CalculateBrain {
     }
     
     func getAdvice() -> String? {
-        return bmi?.advice
+        return bmi?.advice ?? "No advice"
     }
     
     func getColor() -> UIColor? {
-        return bmi?.color
+        return bmi?.color ?? .white
     }
     
 }

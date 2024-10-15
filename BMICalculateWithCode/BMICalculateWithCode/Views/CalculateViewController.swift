@@ -29,7 +29,7 @@ class CalculateViewController: UIViewController {
     private var weightTitleLabel = UILabel(text: "", textAlignment: .left)
     private var weightNumberLabel = UILabel(text: "", textAlignment: .right)
     
-    private lazy var calculateButton = UIButton(isBackgroundWhite: false, calculateButtonTapped: #selector(calculateButtonTapped))
+    private lazy var calculateButton = UIButton(isBackgroundWhite: false)
 
     private lazy var titleLabel : UILabel = {
         let element = UILabel()
@@ -43,17 +43,40 @@ class CalculateViewController: UIViewController {
 
     // MARK: - Life Cycle
     
+    var calculateBrain = CalculateBrain()
+    
+    @objc private func heightSliderChanged(_ sender: UISlider){
+        heightNumberLabel.text = String(format: "%.2f m", sender.value)
+    }
+    
+    @objc private func weightSliderChanged(_ sender: UISlider){
+        weightNumberLabel.text = String(format: "%.0f Kg", sender.value)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
         setupConstrains()
+        calculateButton.addTarget(self, action: #selector(calculateButtonTapped), for: .touchUpInside)
+        heightSlider.addTarget(self, action: #selector(heightSliderChanged), for: .valueChanged)
+        weightSlider.addTarget(self, action: #selector(weightSliderChanged), for: .valueChanged)
     }
 
     @objc private func calculateButtonTapped(){
+        
+        let height = heightSlider.value
+        let weight = weightSlider.value
+        
+        calculateBrain.calculateBMI(height: height, weight: weight)
+        
         let resultVC = ResultViewController()
+        resultVC.bmiValue = calculateBrain.printBMI()
+        resultVC.color = calculateBrain.getColor()
+        resultVC.advice = calculateBrain.getAdvice()
         
         resultVC.modalTransitionStyle = .flipHorizontal
         resultVC.modalPresentationStyle = .fullScreen
+        
         present(resultVC, animated: true)
     }
 

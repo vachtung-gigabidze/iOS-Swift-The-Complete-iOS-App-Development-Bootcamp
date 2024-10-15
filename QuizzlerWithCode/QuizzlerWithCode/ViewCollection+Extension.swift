@@ -4,8 +4,6 @@ extension UIViewController {
     private struct Preview : UIViewControllerRepresentable {
         let viewController: UIViewController
         
-        
-        
         func makeUIViewController(context: Context) -> some UIViewController {
             viewController
         }

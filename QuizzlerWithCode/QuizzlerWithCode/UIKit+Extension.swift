@@ -1,11 +1,11 @@
 import UIKit
 
 extension UIStackView {
-    convenience init(axis: NSLayoutConstraint.Axis, distribution: UIStackView.Distribution, subViews: [UIView] ) {
+    convenience init(axis: NSLayoutConstraint.Axis, distribution: UIStackView.Distribution, spacing: CGFloat, subViews: [UIView] ) {
         self.init(arrangedSubviews: subViews)
         self.axis = axis
         self.distribution = distribution
-        self.spacing = 0
+        self.spacing = spacing
         self.translatesAutoresizingMaskIntoConstraints = false
     }
 }
@@ -15,7 +15,7 @@ extension UILabel {
         self.init()
         self.text = text
         self.textAlignment = textAlignment
-        self.font = .systemFont(ofSize: 30, weight: .light)
+        self.font = .systemFont(ofSize: 30, weight: .bold)
         self.textColor = .white
         self.lineBreakMode = .byWordWrapping
         self.numberOfLines = 0

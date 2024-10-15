@@ -93,9 +93,12 @@ extension ViewController {
     private func setView(){
         scoreLabel.text = "Score"
         questionLabel.text = "Question"
+        progressBar.progressTintColor = .systemPink
+        progressBar.trackTintColor = .white
+        
        
-        buttonsStackView = UIStackView.init(axis: .vertical, distribution: .fillProportionally, subViews: [choose1Button, choose2Button, choose3Button])
-        mainStackView = UIStackView.init(axis: .vertical, distribution: .fillProportionally, subViews: [scoreLabel, questionLabel, buttonsStackView])
+        buttonsStackView = UIStackView.init(axis: .vertical, distribution: .fillProportionally, spacing: 0, subViews: [choose1Button, choose2Button, choose3Button, ])
+        mainStackView = UIStackView.init(axis: .vertical, distribution: .fillProportionally, spacing: 10, subViews: [scoreLabel, questionLabel, buttonsStackView,progressBar])
 
         view.addSubview(backgroundImageView)
         view.addSubview(mainStackView)
@@ -117,7 +120,7 @@ extension ViewController {
         choose1Button.heightAnchor.constraint(equalToConstant: 80),
         choose2Button.heightAnchor.constraint(equalToConstant: 80),
         choose3Button.heightAnchor.constraint(equalToConstant: 80),
-        
+        progressBar.heightAnchor.constraint(equalToConstant: 2)
         ])
     }
 }

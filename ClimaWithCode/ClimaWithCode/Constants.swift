@@ -16,5 +16,6 @@ enum Constants {
     static let geoSF = "location.circle.fill"
     static let search = "Search"
     static let coditionSF = "cloud.rain"
-    static let apiKey = "799e6e18f1d66ec6caa395c43ef209d3"
+    static let apiKey = ""
+    //TODO : Add your apiid
 }

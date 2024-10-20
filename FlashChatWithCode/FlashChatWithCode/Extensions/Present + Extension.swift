@@ -16,5 +16,4 @@ extension UIViewController {
     func showPreview() -> some View {
         Preview(viewController: self).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
     }
-    
 }

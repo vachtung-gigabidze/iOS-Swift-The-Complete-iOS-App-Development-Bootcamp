@@ -14,11 +14,10 @@
 		7971B8CB2CC213C900DD9D26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7971B8C92CC213C900DD9D26 /* LaunchScreen.storyboard */; };
 		7971B8D52CC214B400DD9D26 /* Present + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7971B8D32CC214B400DD9D26 /* Present + Extension.swift */; };
 		7971B8D62CC214B400DD9D26 /* UIKit + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7971B8D42CC214B400DD9D26 /* UIKit + Extension.swift */; };
-		7971B8D92CC21F9700DD9D26 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7971B8D82CC21F9700DD9D26 /* FirebaseAuth */; };
-		7971B8DB2CC21F9700DD9D26 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 7971B8DA2CC21F9700DD9D26 /* FirebaseDatabase */; };
 		7971B8DD2CC2227800DD9D26 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7971B8DC2CC2227700DD9D26 /* Constants.swift */; };
 		7971B8E12CC2282E00DD9D26 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7971B8E02CC2282E00DD9D26 /* SnapKit */; };
 		7971B8E32CC22D1600DD9D26 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7971B8E22CC22D1600DD9D26 /* RegisterViewController.swift */; };
+		7971B8E62CC3AC8100DD9D26 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7971B8E52CC3AC8100DD9D26 /* ChatViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +32,7 @@
 		7971B8D42CC214B400DD9D26 /* UIKit + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit + Extension.swift"; sourceTree = "<group>"; };
 		7971B8DC2CC2227700DD9D26 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7971B8E22CC22D1600DD9D26 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		7971B8E52CC3AC8100DD9D26 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,8 +41,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7971B8E12CC2282E00DD9D26 /* SnapKit in Frameworks */,
-				7971B8DB2CC21F9700DD9D26 /* FirebaseDatabase in Frameworks */,
-				7971B8D92CC21F9700DD9D26 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,13 +66,11 @@
 		7971B8BD2CC213C800DD9D26 /* FlashChatWithCode */ = {
 			isa = PBXGroup;
 			children = (
-				7971B8DC2CC2227700DD9D26 /* Constants.swift */,
-				7971B8DE2CC222C500DD9D26 /* Helpers */,
 				7971B8BE2CC213C800DD9D26 /* AppDelegate.swift */,
 				7971B8C02CC213C800DD9D26 /* SceneDelegate.swift */,
+				7971B8DE2CC222C500DD9D26 /* Helpers */,
 				7971B8D22CC214B400DD9D26 /* Extensions */,
-				7971B8C22CC213C800DD9D26 /* WelcomeViewController.swift */,
-				7971B8E22CC22D1600DD9D26 /* RegisterViewController.swift */,
+				7971B8E42CC2D9B100DD9D26 /* Controllers */,
 				7971B8C72CC213C900DD9D26 /* Assets.xcassets */,
 				7971B8C92CC213C900DD9D26 /* LaunchScreen.storyboard */,
 				7971B8CC2CC213C900DD9D26 /* Info.plist */,
@@ -94,8 +90,19 @@
 		7971B8DE2CC222C500DD9D26 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				7971B8DC2CC2227700DD9D26 /* Constants.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		7971B8E42CC2D9B100DD9D26 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7971B8C22CC213C800DD9D26 /* WelcomeViewController.swift */,
+				7971B8E52CC3AC8100DD9D26 /* ChatViewController.swift */,
+				7971B8E22CC22D1600DD9D26 /* RegisterViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -115,8 +122,6 @@
 			);
 			name = FlashChatWithCode;
 			packageProductDependencies = (
-				7971B8D82CC21F9700DD9D26 /* FirebaseAuth */,
-				7971B8DA2CC21F9700DD9D26 /* FirebaseDatabase */,
 				7971B8E02CC2282E00DD9D26 /* SnapKit */,
 			);
 			productName = FlashChatWithCode;
@@ -148,7 +153,6 @@
 			);
 			mainGroup = 7971B8B22CC213C800DD9D26;
 			packageReferences = (
-				7971B8D72CC21F9700DD9D26 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				7971B8DF2CC2282E00DD9D26 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 7971B8BC2CC213C800DD9D26 /* Products */;
@@ -179,6 +183,7 @@
 			files = (
 				7971B8C32CC213C800DD9D26 /* WelcomeViewController.swift in Sources */,
 				7971B8D52CC214B400DD9D26 /* Present + Extension.swift in Sources */,
+				7971B8E62CC3AC8100DD9D26 /* ChatViewController.swift in Sources */,
 				7971B8E32CC22D1600DD9D26 /* RegisterViewController.swift in Sources */,
 				7971B8BF2CC213C800DD9D26 /* AppDelegate.swift in Sources */,
 				7971B8C12CC213C800DD9D26 /* SceneDelegate.swift in Sources */,
@@ -398,14 +403,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		7971B8D72CC21F9700DD9D26 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 11.3.0;
-			};
-		};
 		7971B8DF2CC2282E00DD9D26 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -417,16 +414,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		7971B8D82CC21F9700DD9D26 /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7971B8D72CC21F9700DD9D26 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
-		};
-		7971B8DA2CC21F9700DD9D26 /* FirebaseDatabase */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7971B8D72CC21F9700DD9D26 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseDatabase;
-		};
 		7971B8E02CC2282E00DD9D26 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7971B8DF2CC2282E00DD9D26 /* XCRemoteSwiftPackageReference "SnapKit" */;

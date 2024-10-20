@@ -34,6 +34,8 @@ struct K {
     struct Size {
         static let buttonSize: CGFloat = 48
         static let buttonOffset: CGFloat = 8
+        static let textFieldInset: CGFloat = 36
+        static let textFieldHeight: CGFloat = 60
     }
     
     struct FStore {

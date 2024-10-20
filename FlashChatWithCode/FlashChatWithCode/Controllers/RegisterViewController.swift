@@ -23,8 +23,8 @@ class RegisterViewController: UIViewController {
     
     private lazy var imageView : UIImageView = {
         let element = UIImageView()
+        element.isUserInteractionEnabled = true
         element.image = UIImage(named: K.textfieldImageName)
-        
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
     }()
@@ -57,6 +57,8 @@ class RegisterViewController: UIViewController {
             view.backgroundColor = UIColor(named: K.BrandColors.blue)
             registerButton.setTitle(K.logInName, for: .normal)
             registerButton.setTitleColor(.white, for: .normal)
+            
+            emailTextField.text = "user@mail.ru"
         default: break
         }
         
@@ -65,7 +67,9 @@ class RegisterViewController: UIViewController {
         mainStackView.addArrangedSubview(registerButton)
         imageView.addSubview(passwordTextField)
         view.addSubview(mainStackView)
+        
         emailTextField.makeShadow()
+        passwordTextField.isSecureTextEntry = true
         
         registerButton.addTarget(self, action: #selector(buttonsTapped), for: .touchUpInside)
         

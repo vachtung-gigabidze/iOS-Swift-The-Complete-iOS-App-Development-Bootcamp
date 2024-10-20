@@ -18,6 +18,8 @@
 		7971B8E12CC2282E00DD9D26 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7971B8E02CC2282E00DD9D26 /* SnapKit */; };
 		7971B8E32CC22D1600DD9D26 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7971B8E22CC22D1600DD9D26 /* RegisterViewController.swift */; };
 		7971B8E62CC3AC8100DD9D26 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7971B8E52CC3AC8100DD9D26 /* ChatViewController.swift */; };
+		7971B8E82CC50A3B00DD9D26 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7971B8E72CC50A3B00DD9D26 /* Message.swift */; };
+		7971B8EB2CC537DF00DD9D26 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7971B8EA2CC537DF00DD9D26 /* MessageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		7971B8DC2CC2227700DD9D26 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7971B8E22CC22D1600DD9D26 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		7971B8E52CC3AC8100DD9D26 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		7971B8E72CC50A3B00DD9D26 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		7971B8EA2CC537DF00DD9D26 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,8 @@
 			children = (
 				7971B8BE2CC213C800DD9D26 /* AppDelegate.swift */,
 				7971B8C02CC213C800DD9D26 /* SceneDelegate.swift */,
+				7971B8EA2CC537DF00DD9D26 /* MessageCell.swift */,
+				7971B8E92CC50A4100DD9D26 /* Models */,
 				7971B8DE2CC222C500DD9D26 /* Helpers */,
 				7971B8D22CC214B400DD9D26 /* Extensions */,
 				7971B8E42CC2D9B100DD9D26 /* Controllers */,
@@ -103,6 +109,14 @@
 				7971B8E22CC22D1600DD9D26 /* RegisterViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7971B8E92CC50A4100DD9D26 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7971B8E72CC50A3B00DD9D26 /* Message.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,8 +196,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7971B8C32CC213C800DD9D26 /* WelcomeViewController.swift in Sources */,
+				7971B8EB2CC537DF00DD9D26 /* MessageCell.swift in Sources */,
 				7971B8D52CC214B400DD9D26 /* Present + Extension.swift in Sources */,
 				7971B8E62CC3AC8100DD9D26 /* ChatViewController.swift in Sources */,
+				7971B8E82CC50A3B00DD9D26 /* Message.swift in Sources */,
 				7971B8E32CC22D1600DD9D26 /* RegisterViewController.swift in Sources */,
 				7971B8BF2CC213C800DD9D26 /* AppDelegate.swift in Sources */,
 				7971B8C12CC213C800DD9D26 /* SceneDelegate.swift in Sources */,

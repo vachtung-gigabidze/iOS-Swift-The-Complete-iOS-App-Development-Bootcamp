@@ -18,24 +18,10 @@ class TodoListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        
-        var newItem = Item()
-        newItem.title = "Find 1"
-        itemArray.append(newItem)
-        
-        var newItem2 = Item()
-        newItem2.title = "Find 2"
-        itemArray.append(newItem2)
-        
-        var newItem3 = Item()
-        newItem3.title = "Find 3"
-        itemArray.append(newItem3)
-        
 //        if let item  = defaults.array(forKey: "ToDoListArray") as? [Item] {
 //            itemArray = item
 //        }
+        self.loadItems()
         // Do any additional setup after loading the view.
     }
     
@@ -58,10 +44,10 @@ class TodoListViewController: UITableViewController {
     // MARK: - TableView Delegate Methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        itemArray[indexPath.row].done = itemArray[indexPath.row].done == false
+        itemArray[indexPath.row].done = !itemArray[indexPath.row].done
         
         self.saveItems()
-//        tableView.reloadData()
+        tableView.reloadData()
         tableView.deselectRow(at: indexPath, animated: true)
         
     }
@@ -101,6 +87,17 @@ class TodoListViewController: UITableViewController {
         } catch {
                 
             }
+    }
+    
+    func loadItems(){
+        if let data = try? Data(contentsOf: dataFilePath!){
+            let decoder = PropertyListDecoder()
+            do {
+                itemArray = try decoder.decode([Item].self, from: data)
+            } catch {
+                
+            }
+        }
     }
 }
 

@@ -56,7 +56,7 @@ class RegisterViewController: UIViewController {
         case .login :
             view.backgroundColor = UIColor(named: K.BrandColors.blue)
             registerButton.setTitle(K.logInName, for: .normal)
-            registerButton.setTitleColor(.white, for: .normal)
+            registerButton.setTiEtleColor(.white, for: .normal)
             
             emailTextField.text = "user@mail.ru"
         default: break

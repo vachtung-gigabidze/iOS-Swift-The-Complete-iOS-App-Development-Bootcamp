@@ -32,6 +32,7 @@
 		796397AF2CC7636200556E23 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 796397AE2CC7636200556E23 /* FirebaseFirestore */; };
 		796397B22CC78F7100556E23 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 796397B12CC78F7100556E23 /* IQKeyboardManagerSwift */; };
 		796397B52CC797F000556E23 /* IQKeyboardToolbarManager in Frameworks */ = {isa = PBXBuildFile; productRef = 796397B42CC797F000556E23 /* IQKeyboardToolbarManager */; };
+		799A87A82CD6542A00FDDA25 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 799A87A72CD6542A00FDDA25 /* FirebaseCrashlytics */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 				796397AF2CC7636200556E23 /* FirebaseFirestore in Frameworks */,
 				796397992CC6665E00556E23 /* FirebaseCore in Frameworks */,
 				796397B52CC797F000556E23 /* IQKeyboardToolbarManager in Frameworks */,
+				799A87A82CD6542A00FDDA25 /* FirebaseCrashlytics in Frameworks */,
 				796397AD2CC7636200556E23 /* FirebaseDatabase in Frameworks */,
 				796397912CC663B400556E23 /* FirebaseAuth in Frameworks */,
 			);
@@ -165,6 +167,7 @@
 				796397AE2CC7636200556E23 /* FirebaseFirestore */,
 				796397B12CC78F7100556E23 /* IQKeyboardManagerSwift */,
 				796397B42CC797F000556E23 /* IQKeyboardToolbarManager */,
+				799A87A72CD6542A00FDDA25 /* FirebaseCrashlytics */,
 			);
 			productName = "Flash-Chat";
 			productReference = 7963976A2CC65AA000556E23 /* Flash-Chat.app */;
@@ -542,6 +545,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 796397B32CC797F000556E23 /* XCRemoteSwiftPackageReference "IQKeyboardToolbarManager" */;
 			productName = IQKeyboardToolbarManager;
+		};
+		799A87A72CD6542A00FDDA25 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7963978F2CC663B400556E23 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

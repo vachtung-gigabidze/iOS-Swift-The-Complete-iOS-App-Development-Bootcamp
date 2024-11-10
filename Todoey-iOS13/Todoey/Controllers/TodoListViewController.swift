@@ -8,6 +8,11 @@ class TodoListViewController: UITableViewController {
 //    let defaults = UserDefaults.standard
     //let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var selectedCategory: Category? {
+        didSet {
+            loadItems()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +59,7 @@ class TodoListViewController: UITableViewController {
             var item = Item(context: context)
             item.title = textField.text!
             item.done = false
+            item.parentCategogry = self.selectedCategory
             self.itemArray.append(item)
             
             self.saveItems()
@@ -83,8 +89,20 @@ class TodoListViewController: UITableViewController {
             }
     }
     
-    func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest()){
-        let request : NSFetchRequest<Item> = Item.fetchRequest()
+    func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest(), predicate: NSPredicate? = nil){
+        
+       
+        let categoryPredicate = NSPredicate(format: "parenCategory.name MATCHES %@", (self.selectedCategory?.name)!)
+        
+        
+        if let compoundPredicate = predicate {
+            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate, compoundPredicate])
+        } else {
+            request.predicate = categoryPredicate
+        }
+        
+         
+        
         do {
             itemArray = try context.fetch(request)
         } catch {

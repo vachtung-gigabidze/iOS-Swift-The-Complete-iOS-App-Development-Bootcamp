@@ -35,17 +35,17 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZN2-8p-oLg">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <action selector="addButtonPressed:" destination="wSZ-O0-83d" id="gl9-BQ-ZOn"/>
+                                <action selector="addButtonPress:" destination="wSZ-O0-83d" id="aEJ-31-CTo"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="TEU-tj-cNO" kind="show" id="kiW-PV-Xu8"/>
+                        <segue destination="TEU-tj-cNO" kind="show" identifier="gotToItems" id="kiW-PV-Xu8"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Smg-gO-X1o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="744" y="-176"/>
+            <point key="canvasLocation" x="702" y="-161"/>
         </scene>
         <!--Items-->
         <scene sceneID="h2d-sQ-J1E">

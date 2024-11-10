@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		799146902CE0CF130076ACEE /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7991468F2CE0CF130076ACEE /* CategoryViewController.swift */; };
-		799146932CE0F3E40076ACEE /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 799146922CE0F3E40076ACEE /* Realm */; };
 		799146952CE0F3E40076ACEE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 799146942CE0F3E40076ACEE /* RealmSwift */; };
 		799146992CE0F4BC0076ACEE /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799146982CE0F4AD0076ACEE /* Item.swift */; };
 		7991469B2CE0FEA90076ACEE /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7991469A2CE0FEA90076ACEE /* Category.swift */; };
 		7991469E2CE0FF850076ACEE /* SwipeCellKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7991469D2CE0FF850076ACEE /* SwipeCellKit */; };
 		799146A02CE1026E0076ACEE /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7991469F2CE1026E0076ACEE /* SwipeTableViewController.swift */; };
+		799146A22CE106050076ACEE /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799146A12CE106050076ACEE /* UIColor + Extension.swift */; };
+		799146A42CE10A3E0076ACEE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 799146A32CE10A3E0076ACEE /* RealmSwift */; };
 		EB2BE4FA239524DB00FB933B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2BE4F9239524DB00FB933B /* AppDelegate.swift */; };
 		EB2BE4FE239524DB00FB933B /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2BE4FD239524DB00FB933B /* TodoListViewController.swift */; };
 		EB2BE501239524DB00FB933B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB2BE4FF239524DB00FB933B /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 		799146982CE0F4AD0076ACEE /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		7991469A2CE0FEA90076ACEE /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		7991469F2CE1026E0076ACEE /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
+		799146A12CE106050076ACEE /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 		EB2BE4F6239524DB00FB933B /* Todoey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todoey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB2BE4F9239524DB00FB933B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB2BE4FD239524DB00FB933B /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
@@ -40,9 +42,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				799146A42CE10A3E0076ACEE /* RealmSwift in Frameworks */,
 				799146952CE0F3E40076ACEE /* RealmSwift in Frameworks */,
 				7991469E2CE0FF850076ACEE /* SwipeCellKit in Frameworks */,
-				799146932CE0F3E40076ACEE /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +112,7 @@
 				799146442CDBD29E0076ACEE /* Views */,
 				799146452CDBD2BD0076ACEE /* Supperted Files */,
 				EB2BE507239524DC00FB933B /* Info.plist */,
+				799146A12CE106050076ACEE /* UIColor + Extension.swift */,
 			);
 			path = Todoey;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				799146A22CE106050076ACEE /* UIColor + Extension.swift in Sources */,
 				799146992CE0F4BC0076ACEE /* Item.swift in Sources */,
 				7991469B2CE0FEA90076ACEE /* Category.swift in Sources */,
 				799146902CE0CF130076ACEE /* CategoryViewController.swift in Sources */,
@@ -413,11 +417,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		799146922CE0F3E40076ACEE /* Realm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 799146912CE0F3E40076ACEE /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = Realm;
-		};
 		799146942CE0F3E40076ACEE /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 799146912CE0F3E40076ACEE /* XCRemoteSwiftPackageReference "realm-swift" */;
@@ -427,6 +426,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7991469C2CE0FF850076ACEE /* XCRemoteSwiftPackageReference "SwipeCellKit" */;
 			productName = SwipeCellKit;
+		};
+		799146A32CE10A3E0076ACEE /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 799146912CE0F3E40076ACEE /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

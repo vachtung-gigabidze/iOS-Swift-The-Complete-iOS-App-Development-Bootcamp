@@ -44,9 +44,9 @@ class TodoListViewController: SwipeTableViewController {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
         if let item = toDoItems?[indexPath.row] {
             cell.textLabel?.text = item.title
-            if let colour = UIColor(hexString: selectedCategory!.colour)?.darken(byPercentage: CGFloat(indexPath.row) / CGFloat(toDoItems!.count)) {
+            if let colour = UIColor(hexString: selectedCategory!.colour) {
                 cell.backgroundColor = colour
-                //cell.textLabel?.textColor = ContrastColorOf(colour, returnFlat: true)
+                cell.textLabel?.textColor = colour.inverseColor()
             }
             cell.accessoryType = item.done ? .checkmark : .none
         } else {

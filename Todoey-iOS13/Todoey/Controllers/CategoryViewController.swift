@@ -41,9 +41,10 @@ class CategoryViewController: SwipeTableViewController {
         cell.textLabel?.text = categories?[indexPath.row].name ?? "No Categories added yet"
         
         if let category = categories?[indexPath.row] {
-            guard let categoryColour = UIColor(hexString: category.colour) else {fatalError()}
-            cell.backgroundColor = categoryColour
-            //cell.textLabel?.textColor = ContrastColorOf(categoryColour, returnFlat: true)
+            if let categoryColour = UIColor(hexString: category.colour) {
+                cell.backgroundColor = categoryColour
+                cell.textLabel?.textColor = categoryColour.inverseColor()
+            }
         }
         return cell
     }
@@ -113,76 +114,4 @@ class CategoryViewController: SwipeTableViewController {
     }
 }
 
-extension UIColor {
-    public convenience init?(hexString: String) {
-        let r, g, b, a: CGFloat
-
-        if hexString.hasPrefix("#") {
-            let start = hexString.index(hexString.startIndex, offsetBy: 1)
-            let hexColor = String(hexString[start...])
-
-            if hexColor.count == 8 {
-                let scanner = Scanner(string: hexColor)
-                var hexNumber: UInt64 = 0
-
-                if scanner.scanHexInt64(&hexNumber) {
-                    r = CGFloat((hexNumber & 0xff000000) >> 24) / 255
-                    g = CGFloat((hexNumber & 0x00ff0000) >> 16) / 255
-                    b = CGFloat((hexNumber & 0x0000ff00) >> 8) / 255
-                    a = CGFloat(hexNumber & 0x000000ff) / 255
-
-                    self.init(red: r, green: g, blue: b, alpha: a)
-                    return
-                }
-            }
-        }
-
-        return nil
-    }
-    
-    static func random() -> UIColor {
-        return UIColor(
-            red: .random(in: 0...1),
-            green: .random(in: 0...1),
-            blue: .random(in: 0...1), alpha: 1
-        )
-    }
-    
-    func hexValue() -> String {
-            var red: CGFloat = 0
-            var green: CGFloat = 0
-            var blue: CGFloat = 0
-            var alpha: CGFloat = 0
-
-            guard self.getRed(&red, green: &green, blue: &blue, alpha: &alpha) else {
-                assertionFailure("Failed to get RGBA components from UIColor")
-                return "#000000"
-            }
-
-            // Clamp components to [0.0, 1.0]
-            red = max(0, min(1, red))
-            green = max(0, min(1, green))
-            blue = max(0, min(1, blue))
-            alpha = max(0, min(1, alpha))
-
-            if alpha == 1 {
-                // RGB
-                return String(
-                    format: "#%02lX%02lX%02lX",
-                    Int(round(red * 255)),
-                    Int(round(green * 255)),
-                    Int(round(blue * 255))
-                )
-            } else {
-                // RGBA
-                return String(
-                    format: "#%02lX%02lX%02lX%02lX",
-                    Int(round(red * 255)),
-                    Int(round(green * 255)),
-                    Int(round(blue * 255)),
-                    Int(round(alpha * 255))
-                )
-            }
-        }
-}
 

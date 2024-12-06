@@ -12,6 +12,8 @@ struct CalculateLogic {
     
     private var number:Double?
     
+    private var intermediateCalculation: (n1: Double, calcMethod: String)?
+    
     mutating func setNumber(_ number: Double) {
         self.number = number
     }
@@ -20,7 +22,7 @@ struct CalculateLogic {
 //        self.number = number
 //    }
     
-    func calculate(symbol: String) -> Double? {
+    mutating func calculate(symbol: String) -> Double? {
         if let n = number {
             if symbol == "+/-" {
                 return n * -1
@@ -29,15 +31,34 @@ struct CalculateLogic {
             } else if symbol == "%" {
                 return n * 0.01
             }
-             else if symbol == "+" {
-                return n * 0.01
-            }
+           
              else if symbol == "=" {
-                return n * 0.01
+                 return performTwoNumbercalculation(n2: n)
             }
+            else {
+                intermediateCalculation = (n1: n, calcMethod: symbol)
+           }
         }
     
         return nil
     }    
-
+    func performTwoNumbercalculation(n2: Double) -> Double? {
+        if let n1 = intermediateCalculation?.n1, let operation = intermediateCalculation?.calcMethod {
+            if operation == "+" {
+               return n1 + n2
+            }
+            if operation == "-" {
+               return n1 - n2
+            }
+            if operation == "×" {
+               return n1 * n2
+            }
+            if operation == "÷" {
+               return n1 / n2
+            }
+            fatalError("Error")
+        }
+        
+        return nil
+    }
 }

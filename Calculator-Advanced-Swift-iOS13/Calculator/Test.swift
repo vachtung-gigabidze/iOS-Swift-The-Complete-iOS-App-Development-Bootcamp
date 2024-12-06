@@ -10,9 +10,9 @@ import Foundation
 
 class Test {
     
-    let viewController : UIViewController
+//    let viewController : UIViewController
     
     init() {
-        viewController.isFinishTypingNumber = true
+//        viewController.isFinishTypingNumber = true
     }
 }

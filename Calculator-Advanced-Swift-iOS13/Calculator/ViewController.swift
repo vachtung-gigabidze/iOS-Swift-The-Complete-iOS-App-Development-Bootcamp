@@ -25,6 +25,16 @@ class ViewController: UIViewController {
             fatalError("Error")
         }
         
+        if let calcMethod = sender.currentTitle {
+            if calcMethod == "+/-" {
+                displayLabel.text = String(Int(number) * -1)
+            } else if calcMethod == "AC" {
+                displayLabel.text = "0"
+            } else if calcMethod == "%" {
+                displayLabel.text = String(number * 0.01)
+            }
+        }
+        
         
 //        let string = String(12)
         

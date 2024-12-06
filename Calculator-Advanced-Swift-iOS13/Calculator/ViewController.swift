@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var isFinishTypingNumber: Bool = true
+    internal var isFinishTypingNumber: Bool = true
     
     @IBOutlet weak var displayLabel: UILabel!
     
@@ -20,6 +20,14 @@ class ViewController: UIViewController {
         
         //What should happen when a non-number button is pressed
         isFinishTypingNumber = true
+        
+        guard let number = Double(displayLabel.text!) else {
+            fatalError("Error")
+        }
+        
+        
+//        let string = String(12)
+        
     }
 
     

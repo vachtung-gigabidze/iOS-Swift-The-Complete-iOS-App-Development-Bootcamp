@@ -50,6 +50,17 @@ class ViewController: UIViewController {
                 displayLabel.text = numValue
                 isFinishTypingNumber = false
             } else {
+                if numValue == "." {
+                    guard let currentDisplayValue = Double(displayLabel.text!) else {
+                        fatalError("Error")
+                    }
+                    
+                    let isInt = floor(currentDisplayValue) == currentDisplayValue
+                    
+                    if !isInt {
+                        return
+                    }
+                }
                 displayLabel.text = displayLabel.text! + numValue
             }
             
